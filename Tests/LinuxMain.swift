@@ -1,7 +1,6 @@
 import XCTest
 
-import GravityViewTests
+import GravityStackTests
 
 var tests = [XCTestCaseEntry]()
-tests += GravityViewTests.allTests()
 XCTMain(tests)

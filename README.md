@@ -1,3 +1,3 @@
-# GravityView
+# GravityStack
 
-A description of this package.
+A versatile stack view that pulls its contents in a given direction.
