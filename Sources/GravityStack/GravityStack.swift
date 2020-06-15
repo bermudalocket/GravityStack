@@ -21,13 +21,13 @@ import WatchKit
 /// |             |    .      |     X     |
 ///
 @available(iOS 13, macOS 10.15, tvOS 13, watchOS 6, *)
-struct GravityStack<Content: View>: View {
+public struct GravityStack<Content: View>: View {
 
-    enum Gravity {
+    public enum Gravity {
         case leading, trailing
     }
 
-    enum Orientation {
+    public enum Orientation {
         case horizontal, vertical
     }
 
@@ -52,7 +52,7 @@ struct GravityStack<Content: View>: View {
     /// in a practical sense. Set to nil to leave the formatting to SwiftUI.
     private let gravityStrength: Double?
 
-    init(_ type: Orientation = .horizontal, gravity: Gravity = .leading, strength: Double? = nil, @ViewBuilder _ content: () -> Content) {
+    public init(_ type: Orientation = .horizontal, gravity: Gravity = .leading, strength: Double? = nil, @ViewBuilder _ content: () -> Content) {
         self.content = content()
         self.orientation = type
         self.gravity = gravity
@@ -80,7 +80,7 @@ struct GravityStack<Content: View>: View {
         }
     }
 
-    var body: some View {
+    public var body: some View {
         Group {
             if self.orientation == .horizontal {
                 if self.gravity == .leading {
@@ -113,7 +113,7 @@ struct GravityStack<Content: View>: View {
 }
 
 @available(iOS 13, macOS 10.15, tvOS 13, watchOS 6, *)
-struct HGravityStack<T: View>: View {
+public struct HGravityStack<T: View>: View {
 
     ///
     /// The contents subject to "gravity"
@@ -131,13 +131,13 @@ struct HGravityStack<T: View>: View {
     /// in a practical sense. Set to nil to leave the formatting to SwiftUI.
     private let gravityStrength: Double?
 
-    init(_ gravity: GravityStack<T>.Gravity = .leading, strength: Double? = nil, @ViewBuilder _ content: () -> T) {
+    public init(_ gravity: GravityStack<T>.Gravity = .leading, strength: Double? = nil, @ViewBuilder _ content: () -> T) {
         self.content = content()
         self.gravity = gravity
         self.gravityStrength = strength
     }
 
-    var body: some View {
+    public var body: some View {
         GravityStack(.horizontal, gravity: self.gravity, strength: self.gravityStrength) {
             self.content
         }
@@ -146,7 +146,7 @@ struct HGravityStack<T: View>: View {
 }
 
 @available(iOS 13, macOS 10.15, tvOS 13, watchOS 6, *)
-struct VGravityStack<T: View>: View {
+public struct VGravityStack<T: View>: View {
 
     ///
     /// The contents subject to "gravity"
@@ -164,13 +164,13 @@ struct VGravityStack<T: View>: View {
     /// in a practical sense. Set to nil to leave the formatting to SwiftUI.
     private let gravityStrength: Double?
 
-    init(_ gravity: GravityStack<T>.Gravity = .leading, strength: Double? = nil, @ViewBuilder _ content: () -> T) {
+    public init(_ gravity: GravityStack<T>.Gravity = .leading, strength: Double? = nil, @ViewBuilder _ content: () -> T) {
         self.content = content()
         self.gravity = gravity
         self.gravityStrength = strength
     }
 
-    var body: some View {
+    public var body: some View {
         GravityStack(.vertical, gravity: self.gravity, strength: self.gravityStrength) {
             self.content
         }
